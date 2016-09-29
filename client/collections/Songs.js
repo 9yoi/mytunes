@@ -13,7 +13,7 @@ var Songs = Backbone.Collection.extend({
       type: 'GET',
       contentType: 'application/json',
       success: function (data) {
-        console.log('success');
+        console.log('data fetch success');
         context.populateSongs(data.results);
       },
       error: function (data) {
