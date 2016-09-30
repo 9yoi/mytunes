@@ -57,7 +57,7 @@ describe('SongQueue', function() {
   });
 
   describe('when a song is dequeued', function() {
-    xit('removes the song', function() {
+    it('removes the song', function() {
       removeSpy = sinon.spy(SongQueue.prototype, 'remove');
       var songQueue = new SongQueue(songData1);
       songQueue.at(0).dequeue();
@@ -67,7 +67,7 @@ describe('SongQueue', function() {
   });
 
   describe('playFirst', function() {
-    xit('plays the first song in the queue', function() {
+    it('plays the first song in the queue', function() {
       sinon.spy(SongModel.prototype, 'play');
       var songQueue = new SongQueue(songData1);
       songQueue.playFirst();

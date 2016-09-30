@@ -13,15 +13,25 @@ var AppModel = Backbone.Model.extend({
     getting called from the window (unless we override it, as we do here). */
 
 
+// !!!!!!!!!??!?!?!!?!? why does song link to current song!
+// What on earth is params.library?!?!
     params.library.on('play', function(song) {
       this.set('currentSong', song);
     }, this);
 
+    params.library.on('ended', function(song) {
+      this.set('currentSong', null);
+    }, this);
+
+    params.library.on('enqueue', function(song) { 
+      this.get('songQueue').add(song);
+    }, this);
+
+    params.library.on('dequeue', function(song) {
+      this.get('songQueue').remove(song);
+    }, this);
   },
 
-  enqueue: function() {
-    this.get('songQueue').at(0);
-    console.log(this.get('songQueue'));
-  }
+
 
 });

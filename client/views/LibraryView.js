@@ -3,9 +3,11 @@ var LibraryView = Backbone.View.extend({
 
   tagName: 'table',
 
+  //!! what happens if there is more than one collection?
+  //!! how do we point to a collection
   initialize: function() {
     this.render();
-
+    this.collection.on('sync', this.render, this);
   },
 
   render: function() {
